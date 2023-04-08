@@ -1,0 +1,6 @@
+<?php
+
+return [
+    'token' => 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhZG1pbiIsImlhdCI6MTU3NzM3MzM4NSwiZXhwIjo0MTAyNDQ0ODAwLCJ1aWQiOjY1MDk1LCJyb2xlcyI6WyJST0xFX1VTRVIiXX0.z51pDJIET9R5iUyrks26UOBMOsPLR6S1XE4KzfsGCgI',
+    'deviceId' => 114870,
+];
