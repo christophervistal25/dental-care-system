@@ -24,7 +24,7 @@ class AdminController extends Controller
     public function index()
     {
         $appointments = Doctor::withCount(['appointments' => function ($query) {
-            $query->whereDate('start_date', date('Y-m-d'));
+            $query->whereDate('start_date', date('Y-m-d'))->where('status', '!=', 'cancelled');
         }])->where('active', 'active')->get();
 
         $services = Service::count();

@@ -31,7 +31,7 @@
 
     <!-- Main CSS -->
     <link rel="stylesheet" href="/assets-v2/assets/css/theme.bundle.css" />
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -60,7 +60,8 @@
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light border-bottom py-0 fixed-top bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex justify-content-start align-items-center border-end" href="./index.html">
+            <a class="navbar-brand d-flex justify-content-start align-items-center border-end"
+                href="{{ route('patient.dashboard') }}">
                 <div class="d-flex align-items-center">
                     <svg class="f-w-5 me-2 text-primary d-flex align-self-center lh-1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.58 182">
@@ -78,7 +79,15 @@
 
                 <!-- Search Bar and Menu Toggle-->
                 <div class="d-flex align-items-center">
-
+                    <!-- Menu Toggle-->
+                    <div
+                        class="menu-toggle cursor-pointer me-4 text-primary-hover transition-color disable-child-pointer">
+                        <i class="ri-skip-back-mini-line ri-lg fold align-middle" data-bs-toggle="tooltip"
+                            data-bs-placement="right" title="Close menu"></i>
+                        <i class="ri-skip-forward-mini-line ri-lg unfold align-middle" data-bs-toggle="tooltip"
+                            data-bs-placement="right" title="Open Menu"></i>
+                    </div>
+                    <!-- / Menu Toggle-->
                     <!-- Search Bar-->
                     <form class="d-none d-md-flex bg-light rounded px-3 py-1">
                         <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
@@ -143,18 +152,6 @@
     <main id="main">
 
         <!-- Breadcrumbs-->
-        <div class="bg-white border-bottom py-3">
-            <div
-                class="container-fluid d-flex justify-content-between align-items-start align-items-md-center flex-column flex-md-row">
-                <nav class="mb-0" aria-label="breadcrumb">
-                    <ol class="breadcrumb m-0">
-                        <li class="breadcrumb-item"><a href="./index.html">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Blank Page</li>
-                    </ol>
-                </nav>
-
-            </div>
-        </div> <!-- / Breadcrumbs-->
 
         <!-- Content-->
         <section class="container-fluid">
@@ -486,7 +483,8 @@
                                         d="M0,182H29.76a21.3,21.3,0,0,0,18.56-10.33,63.27,63.27,0,0,1,106.94,0A21.3,21.3,0,0,0,173.82,182h29.76c-22.66-50.84-49.5-80.34-101.79-80.34S22.66,131.16,0,182Z"
                                         fill="currentColor" fill-rule="evenodd" />
                                 </svg>
-                                <span class="fw-black text-uppercase tracking-wide fs-6 lh-1">Apollo</span>
+                                <span
+                                    class="fw-black text-uppercase tracking-wide fs-6 lh-1">{{ config('app.name') }}</span>
                             </div>
                         </a>
                         <i
@@ -501,17 +499,12 @@
                         <li class="menu-item"><a class="d-flex align-items-center"
                                 href="{{ route('patient.dashboard') }}">
                                 <span class="menu-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        class="w-100">
-                                        <rect fill-opacity=".5" fill="currentColor" x="3" y="3"
-                                            width="7" height="7"></rect>
-                                        <rect fill="currentColor" x="14" y="3" width="7"
-                                            height="7"></rect>
-                                        <rect fill-opacity=".5" fill="currentColor" x="14" y="14"
-                                            width="7" height="7">
-                                        </rect>
-                                        <rect fill="currentColor" x="3" y="14" width="7"
-                                            height="7"></rect>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-calendar-check" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                                        <path
+                                            d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z" />
                                     </svg>
                                 </span>
                                 <span class="menu-link">
@@ -521,22 +514,29 @@
                         <li class="menu-item"><a class="d-flex align-items-center"
                                 href="{{ route('appointment.create') }}">
                                 <span class="menu-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                        class="w-100">
-                                        <rect fill-opacity=".5" fill="currentColor" x="3" y="3"
-                                            width="7" height="7"></rect>
-                                        <rect fill="currentColor" x="14" y="3" width="7"
-                                            height="7"></rect>
-                                        <rect fill-opacity=".5" fill="currentColor" x="14" y="14"
-                                            width="7" height="7">
-                                        </rect>
-                                        <rect fill="currentColor" x="3" y="14" width="7"
-                                            height="7"></rect>
-                                    </svg>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calendar" viewBox="0 0 16 16">
+                                        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                                      </svg>
                                 </span>
                                 <span class="menu-link">
                                     Set Appointment
                                 </span></a></li>
+                        <li class="menu-item"><a class="d-flex align-items-center"
+                                href="/examination-record/{{ auth()->user()->username }}">
+                                <div class="menu-icon">
+                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                        fill="currentColor" class="bi bi-card-checklist" viewBox="0 0 16 16">
+                                        <path
+                                            d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z" />
+                                        <path
+                                            d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z" />
+                                    </svg>
+                                </div>
+                                <span class="menu-link">
+                                    Examination Record
+                                </span>
+                            </a></li>
                         <!-- / Dashboard Menu Section-->
                     </ul>
                 </div>

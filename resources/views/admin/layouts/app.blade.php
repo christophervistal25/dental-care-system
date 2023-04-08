@@ -68,7 +68,7 @@
     <!-- Navbar-->
     <nav class="navbar navbar-expand-lg navbar-light border-bottom py-0 fixed-top bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex justify-content-start align-items-center border-end" href="./index.html">
+            <a class="navbar-brand d-flex justify-content-start align-items-center border-end" href="{{ route('admin.dashboard') }}">
                 <div class="d-flex align-items-center">
                     <svg class="f-w-5 me-2 text-primary d-flex align-self-center lh-1"
                         xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.58 182">
@@ -86,7 +86,13 @@
 
                 <!-- Search Bar and Menu Toggle-->
                 <div class="d-flex align-items-center">
-
+                    <div
+                    class="menu-toggle cursor-pointer me-4 text-primary-hover transition-color disable-child-pointer">
+                    <i class="ri-skip-back-mini-line ri-lg fold align-middle" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Close menu"></i>
+                    <i class="ri-skip-forward-mini-line ri-lg unfold align-middle" data-bs-toggle="tooltip"
+                        data-bs-placement="right" title="Open Menu"></i>
+                </div>
                     <!-- Search Bar-->
                     <form class="d-none d-md-flex bg-light rounded px-3 py-1">
                         <input class="form-control border-0 bg-transparent px-0 py-2 me-5 fw-bolder" type="search"
@@ -483,7 +489,7 @@
                     <!-- Mobile Logo-->
                     <div
                         class="d-flex d-xl-none justify-content-between align-items-center border-bottom aside-header">
-                        <a class="navbar-brand lh-1 border-0 m-0 d-flex align-items-center" href="./index.html">
+                        <a class="navbar-brand lh-1 border-0 m-0 d-flex align-items-center" href="#">
                             <div class="d-flex align-items-center">
                                 <svg class="f-w-5 me-2 text-primary d-flex align-self-center lh-1"
                                     xmlns="http://www.w3.org/2000/svg" viewBox="0 0 203.58 182">

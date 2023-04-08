@@ -41,20 +41,22 @@
                         </div>
 
                         <div class="col-lg-12">
-                            <table class="table border table-sm service-table">
-                                <thead>
-                                    <tr>
-                                        <th class="border text-dark text-center">Service</th>
-                                        <th class="border text-dark text-center">Fee</th>
-                                        <th class="border text-dark text-center">Per each</th>
-                                        <th class="border text-dark text-center"># of tooth</th>
-                                        <th class="border text-dark text-center">Hour/s</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="service-container-dynamic">
-                                </tbody>
-                                <tfoot></tfoot>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table border table-sm service-table">
+                                    <thead>
+                                        <tr>
+                                            <th class="border text-dark text-center">Service</th>
+                                            <th class="border text-dark text-center">Fee</th>
+                                            <th class="border text-dark text-center">Per each</th>
+                                            <th class="border text-dark text-center"># of tooth</th>
+                                            <th class="border text-dark text-center">Hour/s</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="service-container-dynamic">
+                                    </tbody>
+                                    <tfoot></tfoot>
+                                </table>
+                            </div>
                         </div>
                     </div>
 
@@ -278,11 +280,18 @@
                 });
 
 
-                $(document).on('click', '.btn-time-selected', async function() {
+                $(document).on('click', '.btn-time-selected', function() {
+                    let messageElement = document.createElement("p");
+                    messageElement.innerHTML =
+                        `<p>Have you reviewed and verified all the details of your appointment?</p>`;
+                    messageElement.classList.add('text-center');
+                    messageElement.classList.add('fw-medium');
+
                     swal({
                         title: "",
-                        text: "Have you reviewed and verified all the details of your appointment",
+                        content: messageElement,
                         icon: "info",
+                        buttons: ["Cancel", "Yes"],
                     }).then((confirmation) => {
                         if (confirmation) {
                             let selectedStart = $(this).attr('data-start');
